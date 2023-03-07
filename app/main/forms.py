@@ -6,10 +6,10 @@ from app.models import User
 
 
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    about_me = TextAreaField('About me',
+    username = StringField('Никнейм', validators=[DataRequired()])
+    about_me = TextAreaField('Обо мне',
                              validators=[Length(min=0, max=140)])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Тык')
 
     def __init__(self, original_username, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
@@ -19,13 +19,13 @@ class EditProfileForm(FlaskForm):
         if username.data != self.original_username:
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
-                raise ValidationError('Please use a different username.')
+                raise ValidationError('Придумай что-то новенькое.')
 
 
 class EmptyForm(FlaskForm):
-    submit = SubmitField('Submit')
+    submit = SubmitField('Тык')
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField('Say something', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    post = TextAreaField('Черкни что-нибудь', validators=[DataRequired()])
+    submit = SubmitField('Тык')
