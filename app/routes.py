@@ -17,7 +17,7 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index.html', title='Нескучный Спорт', user=user, posts=posts)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -27,4 +27,4 @@ def login():
         flash('Login requested for user {}, remember_me={}'.format(
             form.username.data, form.remember_me.data))
         return redirect(url_for('index'))
-    return render_template('login.html',  title='Sign In', form=form)
+    return render_template('login.html',  title='Войти', form=form)
